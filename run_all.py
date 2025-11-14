@@ -2,6 +2,9 @@ import subprocess
 import os
 import time
 
+# definindo o caminho no ambiente virtual
+python_path = r'.\venv\Scripts\python.exe'
+
 # definindo a ordem de execução
 scripts = [
     "gera-df-clientes.py",
@@ -18,7 +21,8 @@ print("-" * 7)
 for script in scripts:
     print(f"executando {script}...")
     
-    processo = subprocess.run(['python', script], capture_output=True, text=True, check=True)
+    python_path = r'.\venv\Scripts\python.exe'
+    processo = subprocess.run([python_path, script], capture_output=True, text=True, check=True)
     
     print(processo.stdout.strip())
     
