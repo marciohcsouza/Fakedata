@@ -1,0 +1,7 @@
+# python: ignorar ambiente virtual e caches
+venv/
+__pycache__/
+*.pyc
+
+# dados gerados pelo script
+clientesfake.csv
