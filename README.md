@@ -14,12 +14,12 @@ Para obter uma cópia completa do projeto para sua máquina, use o comando git c
 git clone https://github.com/marciohcsouza/Fakedata.git
 cd Fakedata
 
-### 2. Configurar o Ambiente Virtual (venv)
+### 2. Configurar o Ambiente Virtual
 
 Crie e ative o ambiente virtual para isolar as dependências do projeto:
 
 python -m venv venv
-# No Windows:
+#### No Windows:
 .\venv\Scripts\activate
 
 ### 3. Instalar Dependências
