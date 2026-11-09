@@ -4,10 +4,11 @@ from faker import Faker
 
 # inicializações
 fake = Faker('pt_BR')
+fake.seed_instance(42)
 random.seed(42)
 
 # definindo constantes
-total_vendedores = 50 # número fixo de vendedores para a base
+total_vendedores = 13 # número fixo de vendedores para a base
 estados = ["MT", "SP", "RJ", "PR", "SC"] # estados baseados nos dados fornecidos
 
 # definindo a distribuição de status de cadastro (simulando um cenário próximo da realidade onde a maioria está inativa/status 0)

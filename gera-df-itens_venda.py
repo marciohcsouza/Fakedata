@@ -6,7 +6,7 @@ from faker import Faker
 random.seed(42)
 
 # definindo constantes
-total_registros = 2500
+total_registros = 25463
 max_produtos_por_venda = 5
 max_quantidade_por_item = 3
 

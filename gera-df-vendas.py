@@ -5,12 +5,13 @@ from datetime import date
 
 # inicializações
 fake = Faker('pt_BR')
+fake.seed_instance(42)
 random.seed(42)
 
 # definindo constantes e faixas de ids
-total_vendas = 1017
-clientes_ids = list(range(1, 560)) 
-vendedores_ids = list(range(1, 51))
+total_vendas = 10357
+clientes_ids = pd.read_csv("clientesfake.csv")["id_cliente"].tolist()
+vendedores_ids = pd.read_csv("vendedoresfake.csv")["id_vendedor"].tolist()
 canais = ["Site", "Linktree", "Landing Page"]
 
 vendas = []

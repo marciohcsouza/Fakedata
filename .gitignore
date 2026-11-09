@@ -5,3 +5,7 @@ __pycache__/
 
 # dados gerados pelo script
 clientesfake.csv
+# Bases geradas e infraestrutura local
+*.csv
+work/
+.local/

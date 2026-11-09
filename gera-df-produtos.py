@@ -23,6 +23,8 @@ produtos = []
 id_produto = 1
 
 # criando a base fake de produtos, combinando nome, marca e preços
+nomes_produtos = [f"{nome} Modelo {modelo:02d}" for nome in nomes_produtos for modelo in range(1, 11)]
+
 for nome in nomes_produtos:
     for marca in marcas:
         min_preco, max_preco = faixas_preco[marca]

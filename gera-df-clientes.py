@@ -5,10 +5,11 @@ from datetime import date
 
 # incializações
 fake = Faker('pt_BR')
+fake.seed_instance(42)
 random.seed(42)
 
 # definindo constantes
-total_clientes = 1000
+total_clientes = 10185
 
 # distribuição dos e-mails válidos que vão compor a base, simulando um cenário real, neste caso deixo 80% da base com e-mail válido, 15% com e-mail fake e 5% null sendo a diferença de (validos - fakes)
 qtd_emails_validos = int(total_clientes * 0.80)
