@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Crie bases de vendas sintéticas para SQL, Power BI e análise de dados. Configure e baixe cinco CSVs diretamente no navegador."><title>Fake data - Marcio Souza</title><link rel="stylesheet" href="style.css"><script src="generator.js" defer></script><script src="app.js" defer></script></head>
+<body>
+<header class="top"><a href="./" class="brand"><span class="logo">f.</span> fakedata<span class="tag">DATA LAB</span></a><a href="https://github.com/marciohcsouza/Fakedata" target="_blank" rel="noopener">Código no GitHub ↗</a></header>
+<main>
+<section class="hero"><p>Monte seu cenário de vendas, escolha o volume e baixe cinco tabelas relacionadas. Do primeiro SELECT ao próximo dashboard.</p><div class="pills"><span>↳ 100% no seu navegador</span><span>Sem cadastro</span><span>CSV pronto para analisar</span></div></section>
+<div class="workspace">
+<form id="config" class="panel">
+<div class="section-heading"><span class="step">01</span><div><h2>Configure seu cenário</h2><p>O tamanho certo para o seu próximo desafio.</p></div></div>
+<div class="presets" aria-label="Cenários prontos"><button type="button" data-preset="small" class="selected">Explorar <small>~9 mil linhas</small></button><button type="button" data-preset="portfolio">Portfólio <small>~46 mil linhas</small></button><button type="button" data-preset="large">Desafio <small>~181 mil linhas</small></button></div>
+<div class="fields counts">
+<label>Clientes<input name="clientes" type="number" min="1" max="100000" value="1000" required></label><label>Produtos<input name="produtos" type="number" min="1" max="10000" value="150" required></label><label>Vendedores<input name="vendedores" type="number" min="1" max="10000" value="13" required></label><label>Vendas<input name="vendas" type="number" min="1" max="100000" value="2000" required></label><label>Itens de venda<input name="itens" type="number" min="1" max="300000" value="6000" required></label><div class="count-note">IDs relacionados<br><strong>5 tabelas conectadas ↗</strong></div>
+</div>
+<div class="divider"></div>
+<div class="fields"><label>Início das vendas<input name="inicio" type="date" min="2000-01-01" max="2100-12-31" value="2024-01-01" required></label><label>Fim das vendas<input name="fim" type="date" min="2000-01-01" max="2100-12-31" value="2025-06-30" required></label><label>Semente <span title="Mesmos parâmetros e mesma versão geram os mesmos dados.">ⓘ</span><input name="seed" type="number" min="0" max="4294967295" value="42" required></label><label>Separador do CSV<select name="delimiter"><option value=",">Vírgula (,)</option><option value=";">Ponto e vírgula (;)</option></select></label></div>
+<div class="divider"></div>
+<label class="switch-line"><input type="checkbox" name="dirty" id="dirty"><span><strong>Um desafio de qualidade de dados</strong><small>Adicione inconsistências para praticar limpeza e validação.</small></span></label>
+<fieldset id="quality" hidden><legend>Defina a dificuldade</legend><p class="hint">Percentuais exatos, arredondados para baixo. As ocorrências nas vendas podem se sobrepor.</p><div class="sliders">
+<label>E-mails ausentes <output for="missingEmail">5%</output><input id="missingEmail" name="missingEmail" type="range" min="0" max="100" value="5"></label>
+<label>E-mails inválidos <output for="invalidEmail">15%</output><input id="invalidEmail" name="invalidEmail" type="range" min="0" max="100" value="15"></label>
+<label>Vendas antes do cadastro <output for="earlySales">10%</output><input id="earlySales" name="earlySales" type="range" min="0" max="100" value="10"></label>
+<label>Pedidos sem itens <output for="emptySales">10%</output><input id="emptySales" name="emptySales" type="range" min="0" max="99" value="10"></label></div><p id="quality-summary" class="hint"></p></fieldset>
+<p id="error" class="error" role="alert" hidden></p>
+<div class="action-row"><button id="generate" class="primary" type="submit">Gerar minha base <span>↗</span></button><button type="button" id="cancel" hidden>Cancelar</button></div><p class="hint">A geração usa a memória do seu dispositivo. Comece pelo cenário Explorar em celulares.</p>
+</form>
+<aside>
+<section class="panel map"><div class="section-heading"><span class="step">02</span><div><h2>Da base à análise</h2><p>Um pequeno universo de vendas.</p></div></div><div class="relations" aria-label="Clientes e vendedores relacionados a vendas; vendas e produtos relacionados a itens de venda."><div class="entities"><span>♙ Clientes</span><span>♙ Vendedores</span></div><div class="connector">↓ &nbsp; &nbsp; ↓</div><div class="entity accent">▤ Vendas</div><div class="connector">↓</div><div class="entities"><span class="accent">≡ Itens de venda</span><span>◇ Produtos ↲</span></div></div><ul class="benefits"><li><b>01 /</b> Chaves prontas para relacionar</li><li><b>02 /</b> Valores em reais e datas ISO</li><li><b>03 /</b> Parâmetros e esquema no ZIP</li></ul><p class="hint">Dados inteiramente fictícios para estudo e testes. A semente da versão web não reproduz os arquivos do gerador Python.</p></section>
+<section class="note"><span>FEITO PARA PRATICAR</span><p>SQL, Power Query, Python ou Power BI.<br>Você escolhe a ferramenta.<br>A base fica por nossa conta.</p></section>
+</aside>
+</div>
+<section id="result" class="panel result" hidden><div class="result-header"><div><div class="eyebrow">SEU PRÓXIMO DATASET</div><h2 id="result-title">Sua base está pronta.</h2><p id="result-meta"></p></div><a id="download-zip" class="primary" download="fakedata.zip">Baixar tudo em ZIP ↓</a></div><p id="stale" class="notice" hidden>Você alterou a configuração. Os downloads abaixo ainda correspondem à última geração; gere novamente para aplicar as alterações.</p><div id="file-list" class="file-list"></div><div id="tabs" class="tabs" role="tablist" aria-label="Prévia das tabelas"></div><div class="table-scroll" id="table-panel" role="tabpanel" tabindex="0"><table id="preview"></table></div><p class="hint">Prévia das primeiras 5 linhas por tabela. O ZIP inclui os cinco CSVs, parametros.json e dicionario.json. ZIP sem compressão.</p></section>
+<div id="status" class="status" role="status" aria-live="polite"><span id="status-text">Pronto para criar.</span><progress id="progress" max="100" value="0" hidden></progress></div>
+</main><footer><span><strong>fakedata</strong> / por Márcio Souza</span><span>Dados fictícios. Aprendizado de verdade.</span></footer>
+</body></html>
